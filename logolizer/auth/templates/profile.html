@@ -2,5 +2,6 @@
 
 {% block body %}
   Hello {{ user.username }}
+  {% include "upload.html" %}
   <a href="{% url 'logout' %}">Log out</a>
 {% endblock %}
