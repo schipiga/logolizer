@@ -1,10 +1,10 @@
 from django.shortcuts import *
-from django.conf import settings
+from django.core.urlresolvers import reverse
 
 def logout_required(func):
   def wrapper(request, *args, **kwargs):
     if request.user.is_authenticated():
-      return redirect(settings.PROFILE_URL)
+      return redirect(reverse('profile'))
     else:
       return func(request, *args, **kwargs)
   return wrapper

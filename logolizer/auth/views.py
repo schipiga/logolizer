@@ -5,6 +5,8 @@ from django.contrib import auth
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from logolizer.auth.forms import SessionForm
+from logolizer.log.forms import UploadForm
+from logolizer.log.models import Log
 from logolizer.auth.decorators import logout_required
 
 @logout_required
@@ -17,7 +19,7 @@ def login(request):
       if user is not None:
         auth.login(request, user)
         messages.info(request, "You logged in successfully")
-        return redirect(reverse(profile))
+        return redirect(reverse('profile'))
       else:
         messages.error(request, "Invalid login or password")
     else:
@@ -29,8 +31,12 @@ def login(request):
 def logout(request):
   auth.logout(request)
   messages.info(request, "You logged out successfully")
-  return redirect(reverse(login))
+  return redirect(reverse('login'))
 
 @login_required
 def profile(request):
-  return render(request, 'profile.html', {'user': request.user})
+  logs = Log.objects.filter(user=request.user)
+  form = UploadForm()
+  return render(request, 'profile.html', {'user': request.user,
+                                          'form': form,
+                                          'logs': logs})
