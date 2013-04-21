@@ -8,5 +8,5 @@ urlpatterns = patterns('',
   url(r'^profile/$', profile, name='profile'),
   url(r'^logout/$', logout, name='logout'),
   url(r'^upload/$', upload, name='upload'),
-  url(r'^logs/', include(urls)),
+#  url(r'^logs/', include(urls)),
 )

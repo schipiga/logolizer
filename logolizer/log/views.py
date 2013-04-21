@@ -6,7 +6,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from logolizer.log.forms import UploadForm
 from logolizer.log.models import Log
-from logolizer.line.models import Line
+from logolizer.log.tasks import parse
 
 @login_required
 def upload(request):
@@ -17,7 +17,7 @@ def upload(request):
                 file=form.cleaned_data['file'],
                 user=request.user)
       log.save()
-      parse(log)
+      parse.delay(log.id)
       messages.info(request, "File was upload successfully")
     else:
       messages.error(request, "Invalid title or file")
@@ -25,19 +25,3 @@ def upload(request):
     messages.error(request, "Use POST request")
   return redirect(reverse('profile'))
 
-def parse(log):
-  f = open(log.file.path)
-  lines = f.readlines()
-  f.close()
-  for line in lines:
-    l = Line()
-    l.ip = line.split(" ")[0]
-    l.time = re.search('\[(.+)\]', line).group(1)
-    elems = re.findall('"([^"]+)"', line)
-    l.request = elems[0]
-    l.host = elems[1]
-    l.agent = elems[2]
-    l.code = re.search('" (\d+) ', line).group(1)
-    l.duration = re.search('" (\d+\.\d+)', line).group(1)
-    l.log = log
-    l.save()

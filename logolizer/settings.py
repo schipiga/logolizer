@@ -1,5 +1,8 @@
 # Django settings for logolizer project.
 
+import djcelery
+djcelery.setup_loader()
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -127,6 +130,7 @@ INSTALLED_APPS = (
     'logolizer.auth',
     'logolizer.log',
     'logolizer.line',
+    'djcelery',
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
