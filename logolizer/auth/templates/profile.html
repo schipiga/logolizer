@@ -4,4 +4,6 @@
   Hello {{ user.username }}
   {% include "upload.html" %}
   <a href="{% url 'logout' %}">Log out</a>
+<div id="loaded_logs" data-url="{% url 'addiction' %}"></div>
+<div id="status_count"></div>
 {% endblock %}

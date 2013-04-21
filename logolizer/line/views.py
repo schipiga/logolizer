@@ -9,7 +9,7 @@ def top(request, log_id):
   hosts = Line.objects.filter(log=log).values('host').annotate(dcount=Count('host')).order_by("-dcount")[:10]
   return render(request, 'top.html', {'ips': ips, 'hosts': hosts})
 
-def logs_addiction(request):
+def addiction(request):
   logs = Log.objects.filter(user=request.user).only('title', 'created_at')
   return render(request, 'logs_addiction.html', {'logs': logs})
 

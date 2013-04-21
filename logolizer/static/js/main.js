@@ -1,2 +1,4 @@
-require(['jquery-2.0.0.min'], function($) {
+require(['addiction', 'status_count'], function(Addiction, StatusCount) {
+  Addiction.request();
+  StatusCount.initialize();
 });

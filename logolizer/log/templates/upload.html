@@ -1,7 +1,11 @@
-{% for log in logs %}
-  {{ log.title }}
-  {{ log.file.name }}
-{% endfor %}
+<select id="logs_selector">
+  <option>Select log...</option>
+  {% for log in logs %}
+    <option data-url="{% url 'status_count' log.id %}">
+      {{ log.title }}
+    </option>
+  {% endfor %}
+</select>
 
 <form action="{% url 'upload' %}" method="post" enctype="multipart/form-data">
   {% csrf_token %}
