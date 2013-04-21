@@ -9,4 +9,5 @@ class Line(models.Model):
   host = models.CharField(max_length=64)
   agent = models.CharField(max_length=128)
   duration = models.FloatField()
+  is_parsed = models.BooleanField(default=False)
   log = models.ForeignKey(Log)
