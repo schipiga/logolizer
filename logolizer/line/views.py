@@ -1,14 +1,16 @@
+from django.http import HttpResponse
+
 def top(request):
-  pass
+  return HttpResponse('hello')
 
 def logs_addiction(request):
-  pass
+  return HttpResponse('hello')
 
 def time_of_request(request, log_id):
-  pass
+  return HttpResponse('hello')
 
 def status_count(request, log_id):
-  pass
+  return HttpResponse('hello')
 
 def anomalies(request, log_id):
-  pass
+  return HttpResponse('hello')
