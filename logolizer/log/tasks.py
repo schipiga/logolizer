@@ -22,5 +22,5 @@ def parse(log_id):
     l.duration = re.search('" (\d+\.\d+)', line).group(1)
     l.log = log
     l.save()
-  log.is_parsed = True
-  log.save()
+#  log.is_parsed = True
+#  log.save()

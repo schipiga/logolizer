@@ -1,4 +1,4 @@
-define(['jquery-2.0.0.min'], function(jQuery){
+define(['jquery-2.0.0.min'], function(){
   var request = function() {
     $(function(){
       var loaded_logs = $('#loaded_logs');
@@ -6,9 +6,9 @@ define(['jquery-2.0.0.min'], function(jQuery){
         loaded_logs.html(data);
       });
     });
-  }
+  };
 
   return {
     request: request
-  }
+  };
 });

@@ -1,7 +1,11 @@
 <select id="logs_selector">
   <option>Select log...</option>
   {% for log in logs %}
-    <option data-url="{% url 'status_count' log.id %}">
+    <option data-status="{% url 'status_count' log.id %}"
+            data-top="{% url 'top' log.id %}"
+            data-time="{% url 'time_of_request' log.id %}"
+            data-anomalies="{% url 'anomalies' log.id %}"
+            >
       {{ log.title }}
     </option>
   {% endfor %}
