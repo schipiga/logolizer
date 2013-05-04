@@ -1,5 +1,8 @@
 {% if messages %}
   {% for message in messages %}
-    {{ message }}
+    <div class="alert">
+      <a href="#" class="close" data-dismiss="alert">&times;</a>
+      {{ message }}
+    </div>
   {% endfor %}
 {% endif %}

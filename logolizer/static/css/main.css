@@ -1,4 +1,6 @@
 @import url("style.css");
+@import url("bootstrap.min.css");
+@import url("bootstrap-responsive.min.css");
 
 #status_count, #time_of_request {
   width: 500px;
