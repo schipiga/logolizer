@@ -4,9 +4,11 @@
   Hello {{ user.username }}
   {% include "upload.html" %}
   <a href="{% url 'logout' %}">Log out</a>
-<div id="loaded_logs" data-url="{% url 'addiction' %}"></div>
-<div id="status_count"></div>
-<div id="top"></div>
-<div id="time_of_request"></div>
-<div id="anomalies"></div>
+  <div id="loaded_logs" data-url="{% url 'addiction' %}"></div>
+  {% for id in ids %}
+    <div class="container">
+      <a href="#" class="close">&times;</a>
+      <div id="{{ id }}"></div>
+    </div>
+  {% endfor %}
 {% endblock %}

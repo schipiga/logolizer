@@ -7,18 +7,7 @@ require.config({
   }
 });
 
-require(['addiction',
-         'status_count',
-         'top',
-         'time_of_request',
-         'anomalies'], function(Addiction,
-                                StatusCount,
-                                Top,
-                                TimeRequest,
-                                Anomalies) {
+require(['addiction', 'log'], function(Addiction, Log) {
   Addiction.request();
-  StatusCount.initialize();
-  Top.initialize();
-  TimeRequest.initialize();
-  Anomalies.initialize();
+  Log.initialize();
 });

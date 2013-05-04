@@ -6,3 +6,15 @@
   width: 500px;
   height: 300px;
 }
+
+.container {
+  display: none;
+}
+
+.log_selector {
+  cursor: pointer;
+}
+
+.active {
+  background-color: gray;
+}
