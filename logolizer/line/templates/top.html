@@ -1,6 +1,29 @@
-{% for ip in ips %}
-  <div>{{ ip.ip }}</div>
-{% endfor %}
+<table class="tablesorter">
+  <thead>
+    <tr>
+      <th>IP</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for ip in ips %}
+    <tr>
+      <td>{{ ip.ip }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<table class="tablesorter">
+<thead>
+<tr>
+<th>Host</th>
+</tr>
+</thead>
+<tbody>
 {% for host in hosts %}
-  <div>{{ host.host }}</div>
+<tr>
+  <td>{{ host.host }}</td>
+</tr>
 {% endfor %}
+</tbody>
+</table>
