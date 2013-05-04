@@ -1,3 +1,14 @@
-{% for log in logs %}
-  <div>{{ log.created_at }}</div>
-{% endfor %}
+<table class="tablesorter">
+  <thead>
+    <tr>
+      <th>Created at</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for log in logs %}
+      <tr>
+        <td>{{ log.created_at }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

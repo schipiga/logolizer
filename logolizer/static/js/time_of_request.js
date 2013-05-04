@@ -1,4 +1,4 @@
-define(['jquery-2.0.0.min', 'highcharts'], function() {
+define(['jquery', 'highcharts'], function() {
   var initialize = function() {
     $(function() {
       $(document).on("change", "#logs_selector", function() {
