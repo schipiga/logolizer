@@ -11,21 +11,24 @@ from logolizer.log.models import Log
 def upload(request):
   if request.method == "POST":
     form = UploadForm(request.POST, request.FILES)
+# TODO: simplify it, move custom checking to model and form
     if form.is_valid():
-
       file = form.cleaned_data['file']
       if file.content_type.split('/')[0] == 'text':
-        try:
-          check_parsable(file)
-          log = Log(title=form.cleaned_data['title'],
-                    file=file,
-                    user=request.user)
-          log.save()
-          messages.info(request, "File was upload successfully")
-        except:
-          messages.info(request, "Unparsable file")
+        if file.size < 209715200:
+          try:
+            check_parsable(file)
+            log = Log(title=form.cleaned_data['title'],
+                      file=file,
+                      user=request.user)
+            log.save()
+            messages.info(request, "File was upload successfully")
+          except:
+            messages.info(request, "Unparsable file")
+        else:
+          messages.error(request, "Too large file")
       else:
-        messages.info(request, "Invalid file format")
+        messages.error(request, "Invalid file format")
     else:
       messages.error(request, "Invalid title or file")
   else:
