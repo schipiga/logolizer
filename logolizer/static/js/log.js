@@ -22,7 +22,7 @@ define(['jquery',
         $(this).addClass('active');
       });
 
-      $(document).on("click", ".close", function(event) {
+      $(document).on("click", ".hide", function(event) {
         event.preventDefault();
         $(this).siblings('div').toggle();
       });
