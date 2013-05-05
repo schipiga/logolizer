@@ -28,4 +28,4 @@ def status_count(request, log_id):
   return HttpResponse(simplejson.dumps(list(statuses)), mimetype="application/json")
 
 def anomalies(request, log_id):
-  return HttpResponse('hello')
+  return HttpResponse('hello anomalies')

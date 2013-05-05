@@ -1,24 +1,27 @@
-<table class="tablesorter">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Created at</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for log in logs %}
-      <tr class="log_selector"
-          data-status="{% url 'status_count' log.id %}"
-          data-top="{% url 'top' log.id %}"
-          data-time="{% url 'time_of_request' log.id %}"
-          data-anomalies="{% url 'anomalies' log.id %}">
-        <td>
-          {{ log.title }}
-        </td>
-        <td>
-          {{ log.created_at }}
-        </td>
+{% if logs.count > 0 %}
+<h4>Last Loaded Logs</h4>
+  <table class="tablesorter">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Created at</th>
       </tr>
-    {% endfor %}
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      {% for log in logs %}
+        <tr class="log_selector"
+            data-status="{% url 'status_count' log.id %}"
+            data-top="{% url 'top' log.id %}"
+            data-time="{% url 'time_of_request' log.id %}"
+            data-anomalies="{% url 'anomalies' log.id %}">
+          <td>
+            {{ log.title }}
+          </td>
+          <td>
+            {{ log.created_at }}
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endif %}
