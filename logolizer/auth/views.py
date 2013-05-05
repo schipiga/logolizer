@@ -10,6 +10,7 @@ from logolizer.log.forms import UploadForm
 from logolizer.log.models import Log
 from logolizer.auth.decorators import logout_required
 
+
 @logout_required
 def login(request):
   if request.method == 'POST':
