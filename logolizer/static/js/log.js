@@ -17,14 +17,19 @@ define(['jquery',
         new Anomalies($(this).data("anomalies"), $("#anomalies"));
  
         $('.container').show();
-        
         $('.log_selector').removeClass('active');
         $(this).addClass('active');
       });
 
-      $(document).on("click", ".hide", function(event) {
+      $(document).on("click", ".remove", function(event) {
+        var that = $(this);
         event.preventDefault();
-        $(this).siblings('div').toggle();
+        that.siblings('div').toggle();
+        if (that.html() === "hide") {
+          that.html("show");
+        }else{
+          that.html("hide");
+        }
       });
     });
   }
