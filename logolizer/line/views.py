@@ -16,7 +16,7 @@ def addiction(request):
 
 def time_of_request(request, log_id):
   log = Log.objects.get(pk=log_id)
-  durations = Line.objects.filter(log=log).values_list('duration', flat=True)
+  durations = Line.objects.filter(log=log).values_list('duration', flat=True)[:100]
   return HttpResponse(simplejson.dumps(list(durations)), mimetype="application/json")
 
 def status_count(request, log_id):
