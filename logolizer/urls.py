@@ -8,4 +8,5 @@ urlpatterns = patterns('',
   url(r'^logout/$', logout, name='logout'),
   url(r'^upload/$', upload, name='upload'),
   url(r'^logs/', include('logolizer.line.urls')),
+  url(r'^register/$', registration, name='register'),
 )

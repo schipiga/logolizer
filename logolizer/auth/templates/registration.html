@@ -2,10 +2,9 @@
 
 {% block body %}
   {{ form.errors }}
-  <form action="." method="post">
+  <form action="{% url 'register' %}" method="post">
     {% csrf_token %}
     {{ form }}
-    <input type="Submit" value="Log in" />
+    <input type="Submit" value="Sign up" />
   </form>
-  <a href="{% url 'register' %}">Sign Up</a>
 {% endblock %}
