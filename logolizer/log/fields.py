@@ -1,9 +1,9 @@
 from django import forms
 from django.utils.translation import ugettext_lazy as _
-from logolizer.log.parsing import parsing
+from logolizer.log.parsing import parse
 
 def is_parsable(log):
-  return parsing(log.readline())
+  return parse(log.readline())
 
 class LogField(forms.FileField):
   default_error_messages = {
