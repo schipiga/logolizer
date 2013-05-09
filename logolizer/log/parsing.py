@@ -1,8 +1,9 @@
 import re
+from dateutil.parser import parse as parse_date
 
 def parse(line):
   ip = line.split(" ")[0]
-  time = re.search('\[(.+)\]', line).group(1)
+  time = parse_date(re.search('\[(.+)\]', line).group(1), fuzzy=True)
   elems = re.findall('"([^"]+)"', line)
   reqwest = elems[0]
   host = elems[1]

@@ -1,0 +1,6 @@
+<h2>Detected anomalies</h2>
+{% for anomaly in anomalies %}
+  <div>{{ anomaly.time }} - {{ anomaly.time__count }}</div>
+{% endfor %}
+<h3>Average statistic requests count with deviation</h3>
+<div>{{ avg }} +/- {{ dev }} hits/sec</div>
