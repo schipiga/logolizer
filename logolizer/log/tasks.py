@@ -1,7 +1,7 @@
 import logging
 from celery import task
 from logolizer.log.models import Log
-from logolizer.log.parsing import parse
+from logolizer.log.parsing import parse as parse_line
 from logolizer.line.models import Line
 from django.db import connection, transaction
 
@@ -13,8 +13,8 @@ def parse(log_id):
   for line in lines(log):
     try:
       cursor.execute(
-        "INSERT INTO line_line(ip, time, request, code, host, agent, duration, is_parsed, log_id) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)",
-        parse(line) + (False, log_id)
+        "INSERT INTO line_line(ip, time, request, code, host, agent, duration, log_id) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)",
+        parse_line(line) + (log_id,)
       )
     except:
       logger.error("Can't parse log line: %s", line)

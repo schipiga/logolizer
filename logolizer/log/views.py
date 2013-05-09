@@ -9,6 +9,7 @@ from logolizer.log.models import Log
 def upload(request):
   if request.method == "POST":
     form = UploadForm(request.POST, request.FILES)
+    import pdb; pdb.set_trace()
     if form.is_valid():
       log = Log(title=form.cleaned_data['title'],
                 file=form.cleaned_data['file'],
