@@ -2,6 +2,13 @@
 @import url("bootstrap.min.css");
 @import url("bootstrap-responsive.min.css");
 
+body {
+  margin: 20px auto;
+  padding: 0px;
+  width: 1024px;
+  height: auto;
+}
+
 #status_count, #time_of_request {
   width: 500px;
   height: 300px;
@@ -17,4 +24,119 @@
 
 .active {
   background-color: gray;
+}
+
+#login {
+  margin: 150px auto;
+  padding: auto;
+  width: 207px;
+  height: auto;
+}
+
+#submit {
+  float: right;
+}
+
+#signup {
+  margin: -15px 0px;
+  float: left;
+}
+
+#signup_form > form > input[type="text"] {
+  width: 310px;
+}
+
+#signup_form > form > input[type="password"] {
+  width: 310px;
+}
+
+#signup_form {
+  margin: 100px auto;
+  padding: auto;
+  width: 310px;
+  height: auto;
+}
+
+#logout {
+  float: right;
+}
+
+#profile {
+  margin-bottom: 15px;
+}
+
+#upload {
+  width: 210px;
+  height: auto;
+  float: left;
+}
+
+#loaded_logs {
+  margin-left: 300px;
+  padding-top: 1px;
+  width: 400px;
+  height: auto;
+}
+
+hr {
+  width: 1024px;
+}
+
+#loaded_logs > .tablesorter {
+  width: 400px;
+}
+
+#loaded_logs > .tablesorter > thead > tr > th {
+  width: 200px;
+}
+
+#loaded_logs > .tablesorter > tbody > tr > td {
+  width: 200px;
+}
+
+#preloader_back {
+  display:none;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  z-index: 10;
+  background-color: rgba(255,255,255,0.5);
+}
+
+#preloader {
+  margin: 300px auto;
+  width: 100px;
+  height: auto;
+}
+
+#uploading {
+  padding-top: 4px;
+}
+
+.helptext {
+  font-size: 10px;
+  color: gray;
+}
+
+#rega_buttons > a {
+  padding-top: 19px;
+}
+
+#logo {
+  font-size: 40px;
+  font-style: italic;
+  font-weight: bold;
+  color: gray;
+  position: absolute;
+  left: 10px;
+  top: 15px;
+  text-decoration: none;
+}
+
+form > .errorlist {
+  background-color: #ffe5e5;
+  color: #880000;
+  font-size: 11px;
 }

@@ -15,4 +15,8 @@ require(['addiction',
                                 Log) {
   Addiction.request();
   Log.initialize();
+
+  $(document).on("submit", "#upload form", function(){
+    $("#preloader_back").show();
+  });
 });

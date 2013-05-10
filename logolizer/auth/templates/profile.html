@@ -1,10 +1,17 @@
 {% extends "base.html" %}
 
 {% block body %}
-  Hello {{ user.username }}
+  <div id="profile">
+    <span id="hello">
+      Hello {{ user.username|capfirst }}
+    </span>
+    <span id="logout">
+      <a href="{% url 'logout' %}">Log out</a>
+    </span>
+  </div>
   {% include "upload.html" %}
-  <a href="{% url 'logout' %}">Log out</a>
   <div id="loaded_logs" data-url="{% url 'addiction' %}"></div>
+  <hr />
   {% for id in ids %}
     <div class="container">
       <a href="#" class="remove">hide</a>

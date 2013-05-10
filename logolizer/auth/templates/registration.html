@@ -1,10 +1,14 @@
 {% extends "base.html" %}
 
 {% block body %}
-  {{ form.errors }}
+  <div id="signup_form">
   <form action="{% url 'register' %}" method="post">
     {% csrf_token %}
     {{ form }}
-    <input type="Submit" value="Sign up" />
+    <div id="rega_buttons">
+      <a id="signup" href="{% url 'login' %}">Log in</a>
+      <input id="submit" type="Submit" value="Sign up" />
+    </div>
   </form>
+  </div>
 {% endblock %}

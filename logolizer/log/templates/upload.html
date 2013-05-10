@@ -1,5 +1,8 @@
-<form action="{% url 'upload' %}" method="post" enctype="multipart/form-data">
-  {% csrf_token %}
-  {{ form }}
-  <input type="submit" value="Upload" />
-</form>
+<div id="upload">
+  <h5>Upload your nginx log here</h5>
+  <form action="{% url 'upload' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Upload" />
+  </form>
+</div>

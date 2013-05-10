@@ -9,9 +9,15 @@
     <link href="{% static 'css/main.css' %}" rel="stylesheet" type="text/css" />
   </head>
   <body>
+    <a href="{% url 'login' %}" id="logo">LogoLizer</a>
+
     {% include 'flash.html' %}
+    {% include 'preloader.html' %}
 
     {% block body %}
     {% endblock %}
+
+    <hr />
+    <span id="trade">&copy; LogoLizer Ltd. 2000 - 2013</span>
   </body>
 </html>

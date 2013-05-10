@@ -25,21 +25,21 @@ def login(request):
       else:
         messages.error(request, "Invalid login or password")
     else:
-      messages.error(request, "Invalid login or password")
+      messages.error(request, form.errors)
   form = SessionForm()
   return render(request, 'login.html', {'form': form})
 
 @logout_required
 def registration(request):
+  form = UserCreationForm()    
   if request.method == "POST":
     form = UserCreationForm(request.POST)
     if form.is_valid():
-      new_user = form.save()
+      form.save()
       messages.info(request, "You were registered successfully and can log in now")
       return redirect(reverse('login'))
     else:
-      messages.error(request, "Invalid registration data")
-  form = UserCreationForm()    
+      messages.error(request, "Registration was failed")
   return render(request, "registration.html", {"form": form})
 
 @login_required
