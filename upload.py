@@ -1,5 +1,6 @@
 import os
-os.environ['DJANGO_SETTINGS_MODULE']='logolizer.settings'
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "logolizer.settings")
+
 import sys
 import magic
 from shutil import copyfile
@@ -21,10 +22,15 @@ if user is not None:
   title = raw_input("title: ")
   path = raw_input("path to file: ")
   
-  mime = magic.Magic(mime=True)
-  content_type = mime.from_file(path)
-  size = os.path.getsize(path)
-  log_file = UploadedFile(open(path), path, content_type, size)
+  try:
+    mime = magic.Magic(mime=True)
+    content_type = mime.from_file(path)
+    size = os.path.getsize(path)
+
+    log_file = UploadedFile(open(path), path, content_type, size)
+  except Exception, e:
+    print e
+    exit(1)
 
   form = UploadForm({"title": title}, {"file": log_file})
 
@@ -34,7 +40,10 @@ if user is not None:
               user=user)
     log.save()
     print "Successfully uploaded. Parse results are available via web interface"
+    exit(0)
   else:
-    print "There was error"
+    print "There are some errors:\n", form.errors.as_text()
+    exit(1)
 else:
   print "Invalid login or password"
+  exit(1)
