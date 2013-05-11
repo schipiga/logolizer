@@ -5,8 +5,9 @@
       Logolizer
     </title>
     {% load staticfiles %}
+    <link href="{% static 'css/main.less' %}" rel="stylesheet/less" type="text/css" />
+    <script src="{% static 'js/less-1.3.3.min.js' %}"></script>
     <script data-main="{% static 'js/main' %}" src="{% static 'js/require.js' %}"></script>
-    <link href="{% static 'css/main.css' %}" rel="stylesheet" type="text/css" />
   </head>
   <body>
     <a href="{% url 'login' %}" id="logo">LogoLizer</a>
@@ -17,7 +18,6 @@
     {% block body %}
     {% endblock %}
 
-    <hr />
     <span id="trade">&copy; LogoLizer Ltd. 2000 - 2013</span>
   </body>
 </html>

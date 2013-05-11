@@ -1,12 +1,30 @@
-@import url("style.css");
-@import url("bootstrap.min.css");
-@import url("bootstrap-responsive.min.css");
+@import "/static/css/style.css";
+@import "/static/css/bootstrap.min.css";
+@import "/static/css/bootstrap-responsive.min.css";
 
-body {
-  margin: 20px auto;
-  padding: 0px;
-  width: 1024px;
-  height: auto;
+html {
+  position: relative;
+  body {
+    margin: 20px auto 40px;
+    padding: 0px;
+    width: 1024px;
+    height: auto;
+    #logo {
+      font-size: 40px;
+      font-style: italic;
+      font-weight: bold;
+      color: gray;
+      position: absolute;
+      left: 10px;
+      top: 15px;
+      text-decoration: none;
+    }
+    #trade {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+    }
+  }
 }
 
 #status_count, #time_of_request {
@@ -42,19 +60,21 @@ body {
   float: left;
 }
 
-#signup_form > form > input[type="text"] {
-  width: 310px;
-}
-
-#signup_form > form > input[type="password"] {
-  width: 310px;
-}
-
 #signup_form {
   margin: 100px auto;
   padding: auto;
   width: 310px;
   height: auto;
+  form {
+    input[type="text"] {
+      width: 310px;
+    }
+  }
+  form {
+    input[type="password"] {
+      width: 310px;
+    }
+  }
 }
 
 #logout {
@@ -76,22 +96,27 @@ body {
   padding-top: 1px;
   width: 400px;
   height: auto;
+  .tablesorter {
+    width: 400px;
+    thead {
+      tr {
+        th {
+          width: 200px;
+        }
+      }
+    }
+    tbody {
+      tr {
+        td {
+          width: 200px;
+        }
+      }
+    }
+  }
 }
 
 hr {
   width: 1024px;
-}
-
-#loaded_logs > .tablesorter {
-  width: 400px;
-}
-
-#loaded_logs > .tablesorter > thead > tr > th {
-  width: 200px;
-}
-
-#loaded_logs > .tablesorter > tbody > tr > td {
-  width: 200px;
 }
 
 #preloader_back {
@@ -124,19 +149,11 @@ hr {
   padding-top: 19px;
 }
 
-#logo {
-  font-size: 40px;
-  font-style: italic;
-  font-weight: bold;
-  color: gray;
-  position: absolute;
-  left: 10px;
-  top: 15px;
-  text-decoration: none;
-}
 
-form > .errorlist {
-  background-color: #ffe5e5;
-  color: #880000;
-  font-size: 11px;
+form {
+  .errorlist {
+    background-color: #ffe5e5;
+    color: #880000;
+    font-size: 11px;
+  }
 }
