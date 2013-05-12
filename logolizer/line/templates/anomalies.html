@@ -1,6 +1,21 @@
-<h2>Detected anomalies</h2>
-{% for anomaly in anomalies %}
-  <div>{{ anomaly.time }} - {{ anomaly.time__count }}</div>
-{% endfor %}
-<h3>Average statistic requests count with deviation</h3>
-<div>{{ avg }} +/- {{ dev }} hits/sec</div>
+<h5>Average statistic requests count with deviation</h5>
+<div>{{ avg }} &plusmn; {{ deviation }} hits/sec</div>
+{% if anomalies|length > 0 %}
+  <h5>Detected anomalies</h5>
+  <table class=".tablesorter">
+  <thead>
+    <tr>
+      <th>Time detection</th>
+      <th>Hits count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      {% for anomaly in anomalies %}
+        <th>{{ anomaly.time }}</th>
+        <th>{{ anomaly.time__count }}</th>
+      {% endfor %}
+    </tr>
+  </tbody>
+  </table>
+{% endif %}
