@@ -2,10 +2,12 @@ define(['jquery',
         'status_count',
         'top',
         'time_of_request',
+        'hits_per_sec',
         'anomalies'], function(jQuery,
                                StatusCount,
                                Top,
                                TimeRequest,
+                               HitsPerSec,
                                Anomalies) {
 
   var initialize = function() {
@@ -14,6 +16,7 @@ define(['jquery',
         new StatusCount($(this).data("status"), $("#status_count"));
         new TimeRequest($(this).data("time"), $("#time_of_request"));
         new Top($(this).data("top"), $("#top"));
+        new HitsPerSec($(this).data("hits"), $("#hits_per_sec"));
         new Anomalies($(this).data("anomalies"), $("#anomalies"));
  
         $('.container').show();

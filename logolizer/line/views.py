@@ -24,8 +24,15 @@ def time_of_request(request, log_id):
   return HttpResponse(simplejson.dumps(list(durations)),
                       content_type="application/json")
 
-def requests_per_second(request, log_id):
-  pass
+def hits_per_sec(request, log_id):
+  log = Log.objects.get(pk=log_id)
+  hits = Line.objects.filter(log=log).values('time').annotate(count=Count('time'))
+
+  for hit in hits:
+    hit['time'] = hit['time'].__str__()
+
+  return HttpResponse(simplejson.dumps(list(hits)),
+                      content_type="application/json")
 
 def status_count(request, log_id):
   log = Log.objects.get(pk=log_id)
