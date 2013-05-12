@@ -1,5 +1,5 @@
 define(['jquery', 'highcharts'], function() {
-  var TimeRequest = function(url, container) {
+  var HitsPerSec = function(url, container) {
     $.getJSON(url, function(data) {
       container.highcharts({
         chart: {
@@ -20,5 +20,5 @@ define(['jquery', 'highcharts'], function() {
     });
   }
 
-  return TimeRequest
+  return HitsPerSec
 });

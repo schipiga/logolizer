@@ -13,6 +13,7 @@
             data-status="{% url 'status_count' log.id %}"
             data-top="{% url 'top' log.id %}"
             data-time="{% url 'time_of_request' log.id %}"
+            data-hits="{% url 'hits_sec' log.id %}"
             data-anomalies="{% url 'anomalies' log.id %}">
           <td>
             {{ log.title }}

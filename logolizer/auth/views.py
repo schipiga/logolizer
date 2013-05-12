@@ -52,7 +52,13 @@ def logout(request):
 def profile(request):
   logs = Log.objects.filter(user=request.user)
   form = UploadForm()
-  ids = ["status_count", "top", "time_of_request", "anomalies"]
+  ids = [
+    "status_count",
+    "top",
+    "time_of_request",
+    "hits_per_sec",
+    "anomalies"
+  ]
   return render(request, 'profile.html', {'user': request.user,
                                           'form': form,
                                           'ids': ids,
